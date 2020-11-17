@@ -8,7 +8,7 @@
         <br>
         <%= form_tag("/articles", method: "get") do %>
           <%= label_tag(:author_id, "Select author:") %>
-          <%= collection_select(:artiecle, :author_id, Author.all, :id, :name) %>
+          <%= collection_select(:article, :author_id, Author.all, :id, :name, prompt: true) %>
           <%= submit_tag("Filter") %>
         <% end %>
         <br>
