@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = @articles.filter(params[:article][:author_id]) if params[:article] && params[:article][:author_id]
   end
 
   def show
@@ -44,6 +45,8 @@ class ArticlesController < ApplicationController
 
     redirect_to articles_path
   end
+
+
 
   private
     def article_params

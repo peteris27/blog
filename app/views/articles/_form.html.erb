@@ -13,23 +13,37 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="field form-group">
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm">
 
-  <div class="field form-group">
-    <%= form.label :author_id %><br>
-    <%= form.collection_select :author_id, Author.order(:name),:id,:name %>
-  </div>
+    </div>
+    <div class="col-sm" style="text-align: center">
 
-  <div class="field form-group">
-    <%= form.submit %>
-  </div>
+        <div class="field form-group">
+          <%= form.label :title %><br>
+          <%= form.text_field :title %>
+        </div>
 
-<% end %>
+        <div class="field form-group">
+          <%= form.label :text %><br>
+          <%= form.text_area :text %>
+        </div>
+
+        <div class="field form-group">
+          <%= form.label :author_id %><br>
+          <%= form.collection_select :author_id, Author.order(:name),:id,:name %>
+        </div>
+
+        <div class="field form-group">
+          <%= form.submit %>
+        </div>
+
+      <% end %>
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>

@@ -11,12 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+
+      </div>
+      <div class="col-sm" style="text-align: center">
+        <%= form.label :name %>
+
+      <div class="field form-group">
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+      </div>
+      <div class="col-sm">
+
+      </div>
+    </div>
   </div>
-<% end %>

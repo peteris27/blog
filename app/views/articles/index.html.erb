@@ -1,4 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+        <h1>Filter by:</h1>
+        <br>
+        <%= form_tag("/articles", method: "get") do %>
+          <%= label_tag(:author_id, "Select author:") %>
+          <%= collection_select(:artiecle, :author_id, Author.all, :id, :name) %>
+          <%= submit_tag("Filter") %>
+        <% end %>
+        <br>
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>
+
 <h1>Listing Articles</h1>
+
+<br>
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark">
@@ -6,7 +29,7 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th>Author_ID</th>
+    <th>Author</th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -15,7 +38,7 @@
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
-      <td><%= article.author_id %></td>
+      <td><%= article.author.name %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
       <td><%= link_to 'Destroy', article_path(article),
@@ -26,5 +49,3 @@
   <% end %>
 
 </table>
-
-    <%= link_to 'New article', new_article_path, class:"btn, btn-secondary" %>
