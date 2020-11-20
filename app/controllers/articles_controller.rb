@@ -3,13 +3,13 @@ class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "Peteris", password: "secret", except: [:index, :show]
 
   def index
-    if params[:article] && params[:article][:author_id]
-      @articles = Article.search(params[:article][:author_id])
-    else
-    @articles = Article.all
-    end
+    @articles = Article.order(:title).page params[:page]
+    # if params[:article] && params[:article][:author_id]
+    #   @articles = Article.search(params[:article][:author_id])
+    # else
+    #   @articles = Article.all
+    # end
   end
-
 
   def show
     @article = Article.find(params[:id])

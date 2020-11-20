@@ -8,23 +8,23 @@
 
 <ul class="navbar-nav mr-auto">
 
-  <li class="nav-item">
-    <%= link_to "Articles", articles_path, class:"nav-link"%>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "New Articles", new_article_path, class:"nav-link"%>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "Authors", authors_path, class:"nav-link"%>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "New Authors", new_author_path, class:"nav-link"%>
-  </li>
-
   <% if user_signed_in?%>
+    <li class="nav-item">
+      <%= link_to "Articles", articles_path, class:"nav-link"%>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "New Articles", new_article_path, class:"nav-link"%>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "Authors", authors_path, class:"nav-link"%>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "New Authors", new_author_path, class:"nav-link"%>
+    </li>
+
     <li class="nav-item">
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link"%>
     </li>
