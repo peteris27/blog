@@ -34,16 +34,20 @@ class ApplicationPolicy
     false
   end
 
-  class Scope
-    attr_reader :user, :scope
+  class ArticlePolicy < ApplicationPolicy
+    attr_reader :user, :article
 
-    def initialize(user, scope)
+    def initialize(user, article)
       @user = user
-      @scope = scope
+      @article = article
+    end
+
+    def show?
+      false
     end
 
     def resolve
-      scope.all
+      article.all
     end
   end
 end

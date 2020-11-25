@@ -33,7 +33,7 @@
 
         <div class="field form-group">
           <%= form.label :author_id %><br>
-          <%= form.collection_select :author_id, Author.order(:name),:id,:name %>
+          <%= form.collection_select :author_id, User.order(:email),:id,:email %>
         </div>
 
         <div class="field form-group">

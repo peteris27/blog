@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "Peteris", password: "secret", except: [:index, :show]
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  # before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.order(:title).page params[:page]
@@ -19,8 +19,8 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    # @article = Article.new
-    @article = current_user.articles.build
+    @article = Article.new
+    # @article = current_user.articles.build
   end
 
   def edit
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
   def create
     #@article = Article.new(article_params)
-    @article = current_user.articles.build(article_params)
+    @article = Article.new(article_params.merge(author_id: current_user.id))
 
     @article.valid?
     puts @article.errors.full_messages
@@ -42,6 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
